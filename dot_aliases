@@ -1,0 +1,33 @@
+#!/usr/bin/zsh
+
+alias v="nvim $1"
+alias vf='nvim $(fzf)'
+alias k=kubectl
+
+alias sauce="source .env/bin/activate"
+alias commit='local commitMessage='' && vared -p "Enter a commit message: " -c commitMessage && git commit -a -m "$commitMessage"'
+
+alias cw='chezmoi apply & source ~/.zshrc'
+alias cv='chezmoi edit $1'
+alias cgit="chezmoi git $1"
+alias cdcm="cd $HOME/.local/share/chezmoi/"
+alias va='cv $HOME/.aliases && cw && source $HOME/.aliases'
+
+alias ssh="TERM=xterm-256color ssh"
+alias clock="tty-clock -c"
+
+# These kill, start, and restart the desktop service
+alias dk="sudo systemctl stop sddm.service"
+alias ds="sudo systemctl start sddm.service"
+alias dr="sudo systemctl restart sddm.service"
+
+# watch script
+alias mon="watch -c -n1 '$1'"
+
+# task mgmt
+alias tn="task next"
+alias ts="task sync"
+alias ta="task add $1"
+alias tstart="task $1 start"
+alias tstop="task $1 done"
+alias td="task done $1"
