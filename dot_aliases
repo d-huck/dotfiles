@@ -7,7 +7,7 @@ alias k=kubectl
 alias sauce="source .env/bin/activate"
 alias commit='local commitMessage='' && vared -p "Enter a commit message: " -c commitMessage && git commit -a -m "$commitMessage"'
 
-alias cw='chezmoi apply & source ~/.zshrc'
+alias cw='chezmoi apply && source $HOME/.zshrc'
 alias cv='chezmoi edit $1'
 alias cgit="chezmoi git $1"
 alias cdcm="cd $HOME/.local/share/chezmoi/"
