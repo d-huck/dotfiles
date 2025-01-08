@@ -36,6 +36,10 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 [[ -d $HOME/profile ]] && source $HOME/.profile
 
+{{- if eq .chezmoi.hostname "severian" }}
+source .habitat_aliases
+{{- end }}
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 
