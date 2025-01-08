@@ -37,7 +37,7 @@ source $HOME/.aliases
 [[ -d $HOME/profile ]] && source $HOME/.profile
 
 {{- if eq .chezmoi.hostname "severian" }}
-source .habitat_aliases
+source $HOME/.habitat_aliases
 {{- end }}
 
 # nvm
