@@ -66,8 +66,6 @@ call plug#begin('~/.config/nvim/plugged')
     endif
 
     " Focus Helpers
-    Plug 'junegunn/goyo.vim'
-    Plug 'junegunn/limelight.vim'
     Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 
     " Lang Plugins
@@ -92,7 +90,7 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 " - - -- --- ----- Plugin Settings
 " Coc {
-"  let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-python', 'coc-vimtex', 'coc-go', 'coc-rust-analyzer']
+    let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-python', 'coc-vimtex', 'coc-go', 'coc-rust-analyzer']
 " }
 
 " NerdComment {
@@ -107,14 +105,13 @@ let g:airline_theme = 'catppuccin'
 autocmd bufwritepost ~/.config/kitty/kitty.conf :silent !kill -SIGUSR1 $(pgrep kitty)
 hi Normal ctermbg=none guibg=none " use terminal background
 
-
 " LUA Configs
 if has("nvim")
 lua << EOF
 
 -- Set up Colorscheme
 require("catppuccin").setup({
-    flavour = "frappe", -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
         light = "latte",
         dark = "frappe",
@@ -166,4 +163,5 @@ lsp.ts_ls.setup(coq.lsp_ensure_capabilities())
 vim.cmd.colorscheme "catppuccin"
 EOF
 endif
+
 
