@@ -3,6 +3,8 @@
 alias v="nvim $1"
 alias vf='nvim $(fzf)'
 alias k=kubectl
+alias lg=lazygit
+alias sz="source $HOME/.zshrc"
 
 alias sauce="source .env/bin/activate"
 alias commit='local commitMessage='' && vared -p "Enter a commit message: " -c commitMessage && git commit -a -m "$commitMessage"'
