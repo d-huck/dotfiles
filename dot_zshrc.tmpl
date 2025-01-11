@@ -1,3 +1,4 @@
+zmodload zsh/zprof
 # Path set up
 {{- if eq .chezmoi.hostname "saturn" }}
     export PATH=$HOME/go/bin:$HOME/.npm-global/bin:$HOME/bin:/usr/local/bin:$PATH
@@ -20,17 +21,23 @@ ENABLE_CORRECTION="true" # autocorrect
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 
+# Lazy load NVM
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+
 plugins=(
+    zsh-nvm
     git
     direnv
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
 
-# nvim defauls
+# nvim defaults
 export VISUAL=nvim
 export EDITOR=$VISUAL
 
+fpath=(/usr/local/share/zsh-completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -39,13 +46,12 @@ source $HOME/.aliases
 
 {{- if eq .chezmoi.hostname "severian" }}
 source $HOME/.habitat_aliases
+PIPX_DEFAULT_PYTHON=$HOME/.pyenv/versions/3.11.9/bin/python
+
 {{- end }}
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # python
 export PYENV_ROOT="$HOME/.pyenv"

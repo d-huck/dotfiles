@@ -1,0 +1,78 @@
+layout {
+    tab name="ADMIN" {
+        pane split_direction="vertical" {
+            pane size=80 {
+               command "bpytop"
+               borderless true 
+               name "" 
+            }
+            pane focus=true
+            pane size=80{
+                pane {
+                    command "tty-clock"
+                    args "-c"
+                    size 15
+                    name ""
+                    borderless true
+                }
+                pane {
+                    command "vit"
+                }
+                pane {
+                    command "timew"
+                    args "summary"
+                }
+            }
+        }
+    }
+
+    dev cwd="$HOME/projects/Platform-USA/api" name="API"
+    dev cwd="$HOME/projects/Platform-USA/app" name="FRONTEND"
+    dev cwd="$HOME/projects/Infrastructure-USA" name="INFRA"
+
+    pane_template name="lazygit" {
+        command "lazygit"
+    }
+
+    tab_template name="dev" {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+
+        pane split_direction="vertical" {
+            pane stacked=true {
+                pane {
+                    focus true
+                    name "DEV"
+                    expanded true
+                }
+                lazygit {
+                    name "GIT"
+                }
+            }
+            pane {
+                size 80
+                pane {
+                    name "RUN"
+                }
+                pane {
+                    name "TERM"
+                }
+            }
+        }
+    }
+
+    default_tab_template {
+        // the default zellij tab-bar and status bar plugins
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+}
+
+on_force_close "detach"
+default_mode "locked"

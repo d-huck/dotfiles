@@ -89,10 +89,13 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'matze/vim-move'       " move blocks of code
 call plug#end()
 " - - -- --- ----- Plugin Settings
+" CHADTree {
+    nnoremap <leader>v <cmd>CHADopen<cr>
+" }
+
 " Coc {
     let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-python', 'coc-vimtex', 'coc-go', 'coc-rust-analyzer']
 " }
-
 " NerdComment {
   let g:NERDSpaceDelims = 1                     " add space after comment char
   let g:NERDCompactSexyComs = 1                 " short syntax in comment blocks
@@ -104,6 +107,15 @@ let g:airline_theme = 'catppuccin'
 
 autocmd bufwritepost ~/.config/kitty/kitty.conf :silent !kill -SIGUSR1 $(pgrep kitty)
 hi Normal ctermbg=none guibg=none " use terminal background
+
+" Set up tmpl files syntax highlighting
+
+augroup chezmoi_tmpl
+    au!
+    autocmd BufNewFile,BufRead *.tmpl set syntax=bash
+    autocmd BufNewFile,BufRead *.kdl set syntax=bash
+augroup END
+
 
 " LUA Configs
 if has("nvim")
