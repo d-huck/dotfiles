@@ -2,7 +2,6 @@ zmodload zsh/zprof
 # Path set up
 {{- if eq .chezmoi.hostname "saturn" }}
     export PATH=$HOME/go/bin:$HOME/.npm-global/bin:$HOME/bin:/usr/local/bin:$PATH
-    SPACESHIP_PROMPT_ASYNC=false
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
