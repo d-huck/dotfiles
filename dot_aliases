@@ -33,3 +33,7 @@ alias ta="task add $1"
 alias tstart="task $1 start"
 alias tstop="task $1 done"
 alias td="task done $1"
+
+# terraform
+alias tval="terraform validate"
+alias t="terraform"
