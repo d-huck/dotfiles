@@ -7,9 +7,10 @@
 #
 #
 
-if [ -f ~/.cache/gamemode ] ;then
+if [ -f $HOME/.cache/gamemode ] ;then
     hyprctl reload
-    rm ~/.cache/gamemode
+    hypridle & > /dev/null
+    rm $HOME/.cache/gamemode
     notify-send "Gamemode deactivated" "Animations and blur enabled"
 else
     hyprctl --batch "\
@@ -20,6 +21,7 @@ else
         keyword general:gaps_out 0;\
         keyword general:border_size 1;\
         keyword decoration:rounding 0"
-	touch ~/.cache/gamemode
+    pkill hypridle
+	touch $HOME/.cache/gamemode
     notify-send "Gamemode activated" "Animations and blur disabled"
 fi
