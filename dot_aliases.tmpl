@@ -19,10 +19,12 @@ alias va='cv $HOME/.aliases && cw && source $HOME/.aliases'
 alias ssh="TERM=xterm-256color ssh"
 alias clock="tty-clock -c"
 
+{{ if eq .chezmoi.os "linux" }}
 # These kill, start, and restart the desktop service
 alias dk="sudo systemctl stop sddm.service"
 alias ds="sudo systemctl start sddm.service"
 alias dr="sudo systemctl restart sddm.service"
+{{ end  }}
 
 # watch script
 alias mon="watch -c -n1 '$1'"
