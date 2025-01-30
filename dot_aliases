@@ -11,6 +11,7 @@ alias commit='local commitMessage='' && vared -p "Enter a commit message: " -c c
 
 alias cw='chezmoi apply && source $HOME/.zshrc'
 alias cv='chezmoi edit $1'
+alias ccd='chezmoi cd'
 alias cgit="chezmoi git $1"
 alias cdcm="cd $HOME/.local/share/chezmoi/"
 alias va='cv $HOME/.aliases && cw && source $HOME/.aliases'
