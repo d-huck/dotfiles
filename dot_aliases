@@ -38,3 +38,10 @@ alias td="task done $1"
 # terraform
 alias tval="terraform validate"
 alias t="terraform"
+plan() {
+    target=${1}
+    terraform plan -target $target -no-color | tee "$(tty)" | sed '/^module\.stack/d' | sed '1,/Plan:.*/!d' | pbcopy
+}
+
+# Copy to clipboard
+alias copy="cat $1 | pbcopy"
