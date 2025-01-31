@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Davin L
+	email = dhuck@tinycact.us
+[init]
+	defaultBranch = main
+[core]
+	autocrlf = input
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
