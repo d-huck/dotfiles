@@ -1,41 +1,32 @@
 #!/usr/bin/zsh
 
-alias v="nvim $1"
+alias v="nvim"
 alias vf='nvim $(fzf)'
 alias k=kubectl
+alias kwatch=k get pods -o wide -A
 alias lg=lazygit
 alias sz="source $HOME/.zshrc"
 
 alias sauce="source .env/bin/activate"
 alias commit='local commitMessage='' && vared -p "Enter a commit message: " -c commitMessage && git commit -a -m "$commitMessage"'
 
+# Chezmoi and dotfiles management
+function cv() {
+    chezmoi edit --watch $1
+    source $HOME/.zshrc
+}
 alias cw='chezmoi apply && source $HOME/.zshrc'
-alias cv='chezmoi edit $1'
 alias ccd='chezmoi cd'
-alias cgit="chezmoi git $1"
+alias cgit="lazygit -p $(chezmoi source-path)"
 alias cdcm="cd $HOME/.local/share/chezmoi/"
-alias va='cv $HOME/.aliases && cw && source $HOME/.aliases'
-
-alias ssh="TERM=xterm-256color ssh"
-alias clock="tty-clock -c"
-
-{{ if eq .chezmoi.os "linux" }}
-# These kill, start, and restart the desktop service
-alias dk="sudo systemctl stop sddm.service"
-alias ds="sudo systemctl start sddm.service"
-alias dr="sudo systemctl restart sddm.service"
-{{ end  }}
-
-# watch script
-alias mon="watch -c -n1 '$1'"
+alias va='cv $HOME/.aliases && source $HOME/.aliases'
 
 # task mgmt
 alias tn="task next"
 alias ts="task sync"
-alias ta="task add $1"
-alias tstart="task $1 start"
-alias tstop="task $1 done"
-alias td="task done $1"
+alias ta="task add"
+alias tstart="task start"
+alias td="task done "
 
 # terraform
 alias tval="terraform validate"
@@ -44,6 +35,21 @@ plan() {
     target=${1}
     terraform plan -target $target -no-color | tee "$(tty)" | sed '/^module\.stack/d' | sed '1,/Plan:.*/!d' | pbcopy
 }
+
+
+{{ if eq .chezmoi.os "linux" }}
+# These kill, start, and restart the desktop service
+alias dk="sudo systemctl stop sddm.service"
+alias ds="sudo systemctl start sddm.service"
+alias dr="sudo systemctl restart sddm.service"
+{{ end  }}
+
+# misc
+alias ssh="TERM=xterm-256color ssh"
+alias clock="tty-clock -c"
+
+# watch script
+alias mon="watch -c -n1"
 
 # Copy to clipboard
 alias copy="cat $1 | pbcopy"
