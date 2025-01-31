@@ -17,7 +17,7 @@ function cv() {
 }
 alias cw='chezmoi apply && source $HOME/.zshrc'
 alias ccd='chezmoi cd'
-alias cgit="lazygit -p $(chezmoi source-path)"
+alias cgit="lazygit -p $(chezmoi source-path) && chezmoi apply"
 alias cdcm="cd $HOME/.local/share/chezmoi/"
 alias va='cv $HOME/.aliases && source $HOME/.aliases'
 
