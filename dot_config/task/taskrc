@@ -1,10 +1,19 @@
+# use XDG
 data.location=$HOME/.local/share/task
 hooks.location=$HOME/.config/task/hooks
 
+# theme
 include $HOME/.config/task/themes/catppuccin.theme
 
+# context settings
 context.personal.read=-hab
 context.work.read=+hab
 context.work.write=+hab
 
+# custom reports
+report.minimal.sort=urgency-
+report.minimal.labels=id,urg,proj,tags,due,desc  # tags,due,desc
+report.minimal.columns=id,urgency,project,tags.count,due.relative,description.count
+
+# key for syncing
 include $HOME/.config/task/champ.key
