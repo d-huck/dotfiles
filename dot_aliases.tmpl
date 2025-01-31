@@ -27,7 +27,8 @@ alias ts="task sync"
 alias ta="task add"
 alias tstart="task start"
 alias td="task done"
-alias todo="task sync && vit"
+alias tss="task sync >> /dev/null"
+alias todo="tss && vit && tss"
 
 # terraform
 alias tval="terraform validate"
