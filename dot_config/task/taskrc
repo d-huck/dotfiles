@@ -4,7 +4,6 @@ hooks.location=$HOME/.config/task/hooks
 include $HOME/.config/task/themes/catppuccin.theme
 
 context.personal.read=-hab
-context.personal.write=+personal
 context.work.read=+hab
 context.work.write=+hab
 
