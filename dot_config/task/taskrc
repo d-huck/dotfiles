@@ -7,7 +7,5 @@ context.personal.read=-hab
 context.personal.write=+personal
 context.work.read=+hab
 context.work.write=+hab
-context.community.read=+community
-context.community.write=+community
 
 include $HOME/.config/task/champ.key
