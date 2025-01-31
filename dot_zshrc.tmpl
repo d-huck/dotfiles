@@ -34,6 +34,24 @@ plugins=(
     zsh-syntax-highlighting
 )
 
+# update chezmoi
+CHEZMOI_UPDATE_DAYS=3
+if [ ! -f /tmp/chezmoi.update ]; then
+    touch /tmp/chezmoi.update
+    echo "--> Checking for chezmoi updates"
+    chezmoi update
+else
+{{ if eq .chezmoi.os "darwin" }}
+    last_update=$(eval stat -f %Sm -t %s /tmp/chezmoi.update)
+{{ else if eq .chezmoi.os "linux" }}
+    last_update=$(eval stat -c %Y /tmp/chezmoi.update)
+{{ end }}
+    uwupdate=$((($(eval date +%s) - $last_update) / 86400))
+    if [[ "$uwuupdate" -ge "$CHEZMOI_UPDATE_DAYS" ]]; then
+        echo "--> Checking for chezmoi updates"
+        chezmoi update
+    fi
+fi
 # nvim defaults
 export VISUAL=nvim
 export EDITOR=$VISUAL
