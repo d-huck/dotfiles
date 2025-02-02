@@ -8,8 +8,8 @@ layout {
 
         }
         pane {
-           command "task"
-           name "BURNDOWN"
+           command "$HOME/.local/share/watch-burn-down.sh"
+           borderless true
            args "burndown.daily"
            size 16
         }
