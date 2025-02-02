@@ -1,17 +1,10 @@
 layout {
     pane {
         pane {
-            borderless true
-            command "tty-clock"
-            args "-c"
-            size 10
-
-        }
-        pane {
            command "$HOME/.local/share/watch-burn-down.sh"
-           borderless true
+           name ""
            args "burndown.daily"
-           size 16
+           size 26
         }
         pane {
             command "vit"
