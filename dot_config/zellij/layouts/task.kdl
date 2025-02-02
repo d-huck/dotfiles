@@ -8,14 +8,15 @@ layout {
 
         }
         pane {
-            command "vit"
-            borderless true
-            focus true
+           command "task"
+           name "BURNDOWN"
+           args "burndown.daily"
+           size 16
         }
         pane {
-            command "task"
-            borderless true
-            args "burndown.daily"
+            command "vit"
+            name "TODOTODOTODO"
+            focus true
         }
     }
 }
