@@ -1,0 +1,21 @@
+layout {
+    pane {
+        pane {
+            borderless true
+            command "tty-clock"
+            args "-c"
+            size 10
+
+        }
+        pane {
+            command "vit"
+            borderless true
+            focus true
+        }
+        pane {
+            command "task"
+            borderless true
+            args "burndown.daily"
+        }
+    }
+}
