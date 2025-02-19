@@ -7,6 +7,7 @@
 	defaultBranch = main
 [core]
 	autocrlf = input
+	excludesfile = /Users/davin/.global.gitignore
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

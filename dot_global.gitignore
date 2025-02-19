@@ -1,0 +1,12 @@
+# env files
+
+.envrc
+.env.*
+
+# mac files
+.DS_Stre
+
+# tooling
+.vscode
+.idea
+
