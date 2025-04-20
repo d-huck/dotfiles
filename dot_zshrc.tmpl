@@ -1,13 +1,12 @@
 zmodload zsh/zprof
 # Path set up
-{{- if eq .chezmoi.hostname "saturn" }}
+{{- if eq .chezmoi.os "linux" }}
     export PATH=$HOME/go/bin:$HOME/.npm-global/bin:$HOME/bin:/usr/local/bin:$PATH
-{{- end }}
 
-{{- if eq .chezmoi.os "darwin" }}
+{{- else if eq .chezmoi.os "darwin" }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
-{{- end }}
 
+{{ end }}
 export PATH=$HOME/.local/bin:$PATH
 
 # zsh settings
