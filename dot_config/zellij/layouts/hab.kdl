@@ -1,22 +1,16 @@
 layout {
     pane {
         pane {
-            borderless true
-            command "tty-clock"
-            args "-c"
-            size 12
+            command "vit"
+            focus true
+            name "TODOTODOTODO"
+            size 18
         }
         pane {
-            borderless true
-            command "bpytop"
+            name "TERM"
             size 24
         }
         pane stacked=true {
-            pane {
-                command "vit"
-                name "VIT"
-                focus true
-            }
             pane {
                 name "PLATFORM API"
                 cwd "$HOME/projects/Platform-USA/api"
@@ -26,17 +20,20 @@ layout {
                 cwd "$HOME/projects/Platform-USA/app"
             }
             pane {
-                name "APX_BROKER"
-                cwd "$HOME/projects/Platform-USA/tasks/apx-broker"
+                name "FUCKEN LIBS"
+                cwd "$HOME/projects/Platform-USA/libraries/"
             }
             pane {
-                name "PLATFORM CLIENT LIBRARY"
-                cwd "$HOME/projects/Platform-USA/libraries/platform_client"
+                name "TASKS"
+                cwd "$HOME/projects/Platform-USA/tasks/"
             }
             pane {
                 name "INFRASTRUCTURE"
                 cwd "$HOME/projects/Infrastructure-USA"
             }
         }
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
     }
 }
