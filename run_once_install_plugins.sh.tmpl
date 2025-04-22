@@ -1,13 +1,10 @@
 #! /bin/sh
 
+COMPLETE=$HOME/.local/share/chezmoi/.first-time-update-completed
 # install packages
 {{ if eq .chezmoi.os "darwin" }} # mac
-
 {{ else if eq .chezmoi.osRelease.id "debian" }} 
 # raspberry pi or similar
-
-COMPLETE=$HOME/.local/share/chezmoi/.first-time-update-completed
-
 if [ ! -f $COMPLETE ]; then
     echo "New machine! Performing first time package installation!"
     sudo apt update && sudo apt upgrade -y
@@ -21,9 +18,10 @@ if [ ! -f $COMPLETE ]; then
     #done
     touch $COMPLETE
 fi
-
 {{ else }} # x86 linux assuming arch based
-
+if [! -f $COMPLETE ] ;then
+    echo "New machine! Performing first time package installation!"
+fi
 {{ end }}
 
 # install oh-my-zsh
