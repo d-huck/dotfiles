@@ -1,11 +1,32 @@
-#! /bin/sh
+#!/bin/bash
 
-COMPLETE=$HOME/.local/share/chezmoi/.first-time-update-completed
+if [ ! -f $HOME/.ssh/*.pub  ]; then
+    echo "*** WARNING: No ssh key found! Creating a new ssh key, like it or not!"
+    ssh-keygen -t ed25519
+    echo "===> *** *** SSH KEY *** ***"
+    cat $HOME/.ssh/id_ed25519.pub
+    echo "===> *** *** --- --- *** ***"
+    echo "Before we continue, you will need to upload this key to Github! Do this and press any key to continue"
+    read _
+
+else
+    echo "SSH key found, continuing... Hopefully key is on Github!"
+fi
+
+COMPLETE=$HOME/.config/chezmoi/.first-time-update-completed
 # install packages
-{{ if eq .chezmoi.os "darwin" }} # mac
-{{ else if eq .chezmoi.osRelease.id "debian" }} 
-# raspberry pi or similar
 if [ ! -f $COMPLETE ]; then
+
+# macos
+{{ if eq .chezmoi.os "darwin" }} # mac
+    # install brew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    
+    # install packages
+    /opt/homebrew/bin/brew install direnv pyenv fzf uv pipx ranger neovim
+
+# raspberry pi or similar
+{{ else if eq .chezmoi.osRelease.id "debian" }} 
     echo "New machine! Performing first time package installation!"
     sudo apt update && sudo apt upgrade -y
     sudo apt install zsh fzf ranger bpytop neovim build-essential direnv
@@ -16,13 +37,11 @@ if [ ! -f $COMPLETE ]; then
     # lazygit
     curl -sL https://github.com/jesseduffield/lazygit/releases/download/v0.49.0/lazygit_0.49.0_Linux_arm64.tar.gz | tar xz -C "$HOME/bin" lazygit
     #done
+{{ else }} # x86 linux assuming arch based
+    echo "New machine! You are on arch, so no automation is provided. Git gud, noob."
+{{ end }}
     touch $COMPLETE
 fi
-{{ else }} # x86 linux assuming arch based
-if [! -f $COMPLETE ] ;then
-    echo "New machine! Performing first time package installation!"
-fi
-{{ end }}
 
 # install oh-my-zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
