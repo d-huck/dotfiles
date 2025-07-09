@@ -4,7 +4,9 @@ syntax enable			            " enable syntax
 filetype plugin indent on	
 set mouse=a			                " enable mouse
 set updatetime=30		            " time before updates
+set number
 set relativenumber
+set cul
 set history=1000
 set linebreak
 set spell
