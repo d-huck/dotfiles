@@ -3,16 +3,13 @@ description: Summarizes code, files, directories, and project structure concisel
 mode: subagent
 model: github-copilot/gpt-5-mini
 temperature: 0.3
-tools:
-  write: false
-  edit: false
-  bash: false
-  read: true
-  grep: true
-  glob: true
-  list: true
 permission:
+  read: allow
+  grep: allow
+  glob: allow
+  list: allow
   edit: deny
+  write: deny
   bash: deny
 ---
 

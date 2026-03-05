@@ -29,11 +29,17 @@
     }
   },
   "permission": {
+    "read": "allow",
     "edit": "ask",
-    "bash": "ask",
     "write": "ask",
     "webfetch": "allow",
-    "websearch": "allow"
+    "websearch": "allow",
+    "bash": {
+      "*": "ask",
+      "git commit *": "deny",
+      "git push *": "deny",
+      "git push": "deny"
+    }
   },
   "compaction": {
     "auto": true,
@@ -60,10 +66,32 @@
   "autoupdate": true,
   "agent": {
     "general": {
-      "model": "github-copilot/gpt-4.1"
+      "model": "github-copilot/gpt-4.1",
+      "permission": {
+        "bash": {
+          "*": "ask",
+          "git commit *": "deny",
+          "git push *": "deny",
+          "git push": "deny"
+        }
+      }
     },
     "explore": {
-      "model": "github-copilot/claude-haiku-4.5"
+      "model": "github-copilot/gpt-4.1",
+      "permission": {
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "list": "allow",
+        "edit": "deny",
+        "write": "deny",
+        "bash": {
+          "*": "allow",
+          "git commit *": "deny",
+          "git push *": "deny",
+          "git push": "deny"
+        }
+      }
     },
     "summary": {
       "model": "github-copilot/gpt-5-mini"
@@ -72,7 +100,7 @@
       "model": "github-copilot/gpt-5-mini"
     },
     "compaction": {
-      "model": "github-copilot/claude-haiku-4.5"
+      "model": "github-copilot/gpt-5-mini"
     }
   }
 }
