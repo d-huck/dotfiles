@@ -2,6 +2,11 @@ return {
   { "marilari88/neotest-vitest" },
   {
     "nvim-neotest/neotest",
-    opts = { adapters = { "neotest-vitest" } },
+    opts = {
+      adapters = {
+        "neotest-vitest",
+        require("rustaceanvim.neotest"),
+      },
+    },
   },
 }

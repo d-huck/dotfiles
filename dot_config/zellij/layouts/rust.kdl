@@ -1,0 +1,13 @@
+layout {
+  pane {
+    command "nvim"
+    focus true
+    name "NVIMNVIMNVIMNVIMNVIMNVIMNVIMNVIMNVIMNVIMNVIMNVIMNVIMNVIM"
+    size 64
+  }
+  pane {
+    command "cargo watch -x check"
+    size 20
+    name "CHECK"
+  }
+}

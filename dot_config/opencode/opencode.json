@@ -1,0 +1,61 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "qwen/qwen3-coder-30b": {
+          "name": "Qwen3 Coder 30b (local)",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        }
+      }
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app"
+    }
+  },
+  "permission": {
+    "edit": "ask",
+    "bash": "ask",
+    "write": "ask",
+    "webfetch": "allow",
+    "websearch": "allow"
+  },
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 6000
+  },
+  "watcher": {
+    "ignore": [
+      "node_modules/**",
+      ".venv/**",
+      "venv/**",
+      "__pycache__/**",
+      "*.pyc",
+      ".git/**",
+      "dist/**",
+      "build/**",
+      "*.egg-info/**",
+      ".tox/**",
+      ".mypy_cache/**",
+      ".pytest_cache/**",
+      "*.lock"
+    ]
+  },
+  "autoupdate": true
+}

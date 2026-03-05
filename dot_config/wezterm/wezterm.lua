@@ -19,6 +19,6 @@ config.font_size = 12
 config.color_scheme = "Catppuccin Mocha"
 
 config.tab_bar_at_bottom = false
-
+config.hide_tab_bar_if_only_one_tab = true
 -- Finally, return the configuration to wezterm:
 return config
