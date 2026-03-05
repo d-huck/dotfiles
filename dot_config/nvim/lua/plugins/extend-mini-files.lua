@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.files",
+  "nivim-mini/mini.files",
   keys = {
     {
       "<leader>m",
