@@ -1,7 +1,7 @@
 ---
 description: Implements plans and features by writing, editing, and executing code
 mode: subagent
-model: copilot/gpt-4.1
+model: github-copilot/gpt-4.1
 temperature: 0.2
 permission:
   edit: ask

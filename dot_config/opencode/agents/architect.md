@@ -1,6 +1,7 @@
 ---
 description: Designs system architecture and evaluates technical decisions
 mode: subagent
+model: github-copilot/claude-sonnet-4.6
 temperature: 0.4
 tools:
   write: false

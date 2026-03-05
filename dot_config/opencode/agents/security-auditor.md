@@ -1,6 +1,7 @@
 ---
 description: Scans code for security vulnerabilities and bad practices
 mode: subagent
+model: github-copilot/gpt-4.1
 temperature: 0.2
 tools:
   write: false

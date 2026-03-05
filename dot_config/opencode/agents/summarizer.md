@@ -1,6 +1,7 @@
 ---
 description: Summarizes code, files, directories, and project structure concisely
 mode: subagent
+model: github-copilot/gpt-5-mini
 temperature: 0.3
 tools:
   write: false

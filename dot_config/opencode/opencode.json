@@ -57,5 +57,22 @@
       "*.lock"
     ]
   },
-  "autoupdate": true
+  "autoupdate": true,
+  "agent": {
+    "general": {
+      "model": "github-copilot/gpt-4.1"
+    },
+    "explore": {
+      "model": "github-copilot/claude-haiku-4.5"
+    },
+    "summary": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "title": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "compaction": {
+      "model": "github-copilot/claude-haiku-4.5"
+    }
+  }
 }
