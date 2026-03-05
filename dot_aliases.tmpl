@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 
 alias v="nvim"
+alias u="uv run nvim"
 alias vf='nvim $(fzf)'
 alias k=kubectl
 alias kwatch=k get pods -o wide -A
@@ -34,8 +35,13 @@ alias todo="zellij -l $HOME/.config/zellij/layouts/task.kdl"
 alias tval="terraform validate"
 alias t="terraform"
 plan() {
-    target=${1}
-    terraform plan -target $target -no-color | tee "$(tty)" | sed '/^module\.stack/d' | sed '1,/Plan:.*/!d' | pbcopy
+    if [ -n "$1" ]; then
+        target="-target ${1}"
+        echo $target
+    else
+        target=""
+    fi
+    terraform plan $target -no-color | tee "$(tty)" | sed '/^module\.stack/d' | sed '1,/Plan:.*/!d' | pbcopy
 }
 
 
@@ -49,7 +55,8 @@ alias dr="sudo systemctl restart sddm.service"
 # misc
 alias ssh="TERM=xterm-256color ssh"
 alias clock="tty-clock -c"
-
+alias h="history | fzf"
+alias amend="git commit --amend --no-edit && git push --force-with-lease"
 # watch script
 alias mon="watch -c -n1"
 
