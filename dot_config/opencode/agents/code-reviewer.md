@@ -66,4 +66,4 @@ Structure your review as:
 3. **Suggestions** — improvements to quality/readability (should fix)
 4. **Nitpicks** — style/preference items (optional)
 
-Be specific: reference file paths and line numbers. Suggest concrete fixes, not vague advice.
+Be specific: reference file paths and line numbers. Suggest concrete fixes, not vague advice. Prioritize technical accuracy over validation — flag real issues even if the code is mostly correct. A missed critical issue is worse than an uncomfortable finding.

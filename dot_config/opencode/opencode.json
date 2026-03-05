@@ -64,6 +64,7 @@
     ]
   },
   "autoupdate": true,
+  "default_agent": "team-leader",
   "agent": {
     "general": {
       "model": "github-copilot/gpt-4.1",

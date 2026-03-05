@@ -8,8 +8,8 @@ permission:
   grep: allow
   glob: allow
   list: allow
-  edit: ask
-  write: ask
+  edit: allow
+  write: allow
   bash:
     "*": ask
     "uv": allow
@@ -40,6 +40,12 @@ When given a plan or specification:
 - Run tests or type checkers after changes when appropriate
 - If a step fails, diagnose the root cause before retrying — do not brute-force
 - Report blockers clearly rather than attempting workarounds that deviate from the plan
+
+## Tool Usage
+
+- For file operations, use dedicated tools: Read instead of cat/head/tail, Edit instead of sed/awk, Write instead of cat with heredoc or echo redirection
+- Reserve bash exclusively for actual system commands — running tests, type checkers, build tools, and package managers
+- Never use bash echo or other shell commands to produce output; write all communication directly in your response
 
 ## Principles
 
