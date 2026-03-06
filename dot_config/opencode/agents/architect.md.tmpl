@@ -1,7 +1,8 @@
 ---
 description: Designs system architecture and evaluates technical decisions
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
+{{ if ne .chezmoi.hostname "Mac" }}model: github-copilot/claude-sonnet-4.6
+{{ end -}}
 temperature: 0.4
 permission:
   read: allow

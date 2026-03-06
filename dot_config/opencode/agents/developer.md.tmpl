@@ -1,7 +1,8 @@
 ---
 description: Implements plans and features by writing, editing, and executing code
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
+{{ if ne .chezmoi.hostname "Mac" }}model: github-copilot/claude-sonnet-4.6
+{{ end -}}
 temperature: 0.2
 permission:
   read: allow

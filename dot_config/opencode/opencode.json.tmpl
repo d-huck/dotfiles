@@ -67,7 +67,9 @@
   "default_agent": "team-leader",
   "agent": {
     "general": {
+{{- if ne .chezmoi.hostname "Mac" }}
       "model": "github-copilot/gpt-4.1",
+{{- end }}
       "permission": {
         "bash": {
           "*": "ask",
@@ -78,7 +80,9 @@
       }
     },
     "explore": {
+{{- if ne .chezmoi.hostname "Mac" }}
       "model": "github-copilot/gpt-4.1",
+{{- end }}
       "permission": {
         "read": "allow",
         "grep": "allow",
@@ -93,7 +97,8 @@
           "git push": "deny"
         }
       }
-    },
+    }
+{{- if ne .chezmoi.hostname "Mac" }},
     "summary": {
       "model": "github-copilot/gpt-5-mini"
     },
@@ -103,5 +108,6 @@
     "compaction": {
       "model": "github-copilot/gpt-5-mini"
     }
+{{- end }}
   }
 }

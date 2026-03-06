@@ -1,7 +1,8 @@
 ---
 description: Default full-access agent for development work
 mode: primary
-model: github-copilot/claude-sonnet-4.6
+{{ if ne .chezmoi.hostname "Mac" }}model: github-copilot/claude-sonnet-4.6
+{{ end -}}
 temperature: 0.3
 permission:
   edit: ask

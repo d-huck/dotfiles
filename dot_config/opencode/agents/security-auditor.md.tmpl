@@ -1,7 +1,8 @@
 ---
 description: Scans code for security vulnerabilities and bad practices
 mode: subagent
-model: github-copilot/gpt-4.1
+{{ if ne .chezmoi.hostname "Mac" }}model: github-copilot/gpt-4.1
+{{ end -}}
 temperature: 0.2
 permission:
   read: allow

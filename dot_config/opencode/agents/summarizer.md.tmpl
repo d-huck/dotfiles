@@ -1,7 +1,8 @@
 ---
 description: Summarizes code, files, directories, and project structure concisely
 mode: subagent
-model: github-copilot/gpt-5-mini
+{{ if ne .chezmoi.hostname "Mac" }}model: github-copilot/gpt-5-mini
+{{ end -}}
 temperature: 0.3
 permission:
   read: allow
