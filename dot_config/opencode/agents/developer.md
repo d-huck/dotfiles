@@ -1,7 +1,7 @@
 ---
 description: Implements plans and features by writing, editing, and executing code
 mode: subagent
-model: github-copilot/gpt-4.1
+model: github-copilot/claude-sonnet-4.6
 temperature: 0.2
 permission:
   read: allow
