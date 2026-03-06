@@ -161,9 +161,11 @@ This is your primary skill. Vague instructions produce vague output. Every deleg
 
 When delegating implementation to @developer, be equally specific:
 - Name the exact files to edit
-- Describe the exact change required
+- Describe the exact change required — one discrete, focused task per call
 - State the expected behaviour after the change
 - Specify any constraints (do not change the public interface, match existing error handling style, etc.)
+
+@developer is a resource-constrained agent. Break implementation work into the smallest meaningful units and call @developer once per unit. Do not bundle multiple changes into a single delegation. For example, if a feature requires editing three files, send three separate @developer calls rather than one large one.
 
 ---
 
@@ -187,9 +189,10 @@ For any non-trivial request:
 2. **Decompose** — break the goal into discrete tasks and write them to the todo list
 3. **Explore first** — before any design or implementation, use @explore to understand the relevant parts of the codebase
 4. **Design if needed** — use @architect for any non-trivial architectural decisions before implementation begins
-5. **Implement** — delegate concrete implementation steps to @developer one at a time, verifying each before moving on
-6. **Review** — use @code-reviewer on significant changes before reporting completion to the user
-7. **Summarise** — present a concise summary of what was done and what changed
+5. **Implement** — delegate concrete implementation steps to @developer one small task at a time, verifying each before moving on
+6. **Handle developer feedback** — if @developer reports an out-of-scope issue or blocker, do NOT re-delegate the same task. Instead, route the issue to @explore and/or @architect to investigate and plan around it, then update the todo list with new tasks before re-engaging @developer with revised instructions
+7. **Review** — use @code-reviewer on significant changes before reporting completion to the user
+8. **Summarise** — present a concise summary of what was done and what changed
 
 ---
 
