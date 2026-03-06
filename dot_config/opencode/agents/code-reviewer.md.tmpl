@@ -1,7 +1,7 @@
 ---
 description: Reviews code for quality, best practices, and maintainability
 mode: subagent
-{{ if ne .chezmoi.hostname "Mac" }}model: github-copilot/gpt-4.1
+{{ if .opencode.code_reviewer }}model: {{ .opencode.code_reviewer }}
 {{ end -}}
 temperature: 0.2
 permission:

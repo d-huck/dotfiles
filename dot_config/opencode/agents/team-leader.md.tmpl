@@ -1,7 +1,7 @@
 ---
 description: Pure orchestration agent that decomposes tasks into precise subagent instructions while maintaining session coherence
 mode: primary
-{{ if ne .chezmoi.hostname "Mac" }}model: github-copilot/claude-sonnet-4.6
+{{ if .opencode.team_leader }}model: {{ .opencode.team_leader }}
 {{ end -}}
 temperature: 0.2
 permission:

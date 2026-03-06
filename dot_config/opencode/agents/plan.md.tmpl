@@ -1,10 +1,11 @@
 ---
 description: Read-only agent for analysis and planning
 mode: primary
-{{ if ne .chezmoi.hostname "Mac" }}model: github-copilot/claude-sonnet-4.6
+{{ if .opencode.plan }}model: {{ .opencode.plan }}
 {{ end -}}
 temperature: 0.3
 permission:
+  read: allow
   edit: deny
   bash: deny
   write: deny

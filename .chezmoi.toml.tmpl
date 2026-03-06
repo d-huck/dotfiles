@@ -1,0 +1,31 @@
+{{ if eq .chezmoi.hostname "Mac" -}}
+[data.opencode]
+team_leader = "anthropic/claude-sonnet-4-6"
+developer = "lmstudio/qwen/qwen3.5-9b"
+architect = "lmstudio/qwen/qwen3.5-9b"
+code_reviewer = "lmstudio/qwen/qwen3.5-9b"
+plan = "lmstudio/qwen/qwen3.5-9b"
+build = "lmstudio/qwen/qwen3.5-9b"
+security_auditor = "lmstudio/qwen/qwen3.5-9b"
+summarizer = "lmstudio/qwen/qwen3.5-9b"
+general = "lmstudio/qwen/qwen3.5-9b"
+explore = "lmstudio/qwen/qwen3.5-9b"
+summary = "lmstudio/qwen/qwen3.5-9b"
+title = "lmstudio/qwen/qwen3.5-9b"
+compaction = "lmstudio/qwen/qwen3.5-9b"
+{{ else -}}
+[data.opencode]
+team_leader = "github-copilot/claude-sonnet-4.6"
+developer = "github-copilot/claude-sonnet-4.6"
+architect = "github-copilot/claude-sonnet-4.6"
+code_reviewer = "github-copilot/gpt-4.1"
+plan = "github-copilot/claude-sonnet-4.6"
+build = "github-copilot/claude-sonnet-4.6"
+security_auditor = "github-copilot/gpt-4.1"
+summarizer = "github-copilot/gpt-5-mini"
+general = "github-copilot/gpt-4.1"
+explore = "github-copilot/gpt-4.1"
+summary = "github-copilot/gpt-5-mini"
+title = "github-copilot/gpt-5-mini"
+compaction = "github-copilot/gpt-5-mini"
+{{ end -}}

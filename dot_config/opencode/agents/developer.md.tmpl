@@ -1,7 +1,7 @@
 ---
 description: Implements plans and features by writing, editing, and executing code
 mode: subagent
-{{ if ne .chezmoi.hostname "Mac" }}model: github-copilot/claude-sonnet-4.6
+{{ if .opencode.developer }}model: {{ .opencode.developer }}
 {{ end -}}
 temperature: 0.2
 permission:
@@ -15,6 +15,12 @@ permission:
     "*": ask
     "uv": allow
     "uv *": allow
+    "terraform": allow 
+    "terraform *": allow
+    "terraform state": deny
+    "terraform state *": deny
+    "terraform apply": deny
+    "terraform apply *": deny
     "git commit *": deny
     "git push *": deny
     "git push": deny

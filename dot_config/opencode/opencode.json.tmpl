@@ -14,6 +14,34 @@
             "context": 32768,
             "output": 8192
           }
+        },
+        "qwen/qwen3.5-9b": {
+          "name": "Qwen3.5 9b (local)",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          }
+        },
+        "qwen3.5-27b-claude-opus-4.6-distill": {
+          "name": "Qwen3.5 27b Claude Opus Distill (local)",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          }
+        },
+        "mlmlml": {
+          "name": "MLMLML (local)",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          }
+        },
+        "qwen/qwen3-4b-thinking-2507": {
+          "name": "Qwen3 4b Thinking (local)",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          }
         }
       }
     }
@@ -67,8 +95,8 @@
   "default_agent": "team-leader",
   "agent": {
     "general": {
-{{- if ne .chezmoi.hostname "Mac" }}
-      "model": "github-copilot/gpt-4.1",
+{{- if .opencode.general }}
+      "model": "{{ .opencode.general }}",
 {{- end }}
       "permission": {
         "bash": {
@@ -80,8 +108,8 @@
       }
     },
     "explore": {
-{{- if ne .chezmoi.hostname "Mac" }}
-      "model": "github-copilot/gpt-4.1",
+{{- if .opencode.explore }}
+      "model": "{{ .opencode.explore }}",
 {{- end }}
       "permission": {
         "read": "allow",
@@ -98,16 +126,22 @@
         }
       }
     }
-{{- if ne .chezmoi.hostname "Mac" }},
+{{- if or .opencode.summary .opencode.title .opencode.compaction }},
+{{- if .opencode.summary }}
     "summary": {
-      "model": "github-copilot/gpt-5-mini"
-    },
+      "model": "{{ .opencode.summary }}"
+    }{{ if or .opencode.title .opencode.compaction }},{{ end }}
+{{- end }}
+{{- if .opencode.title }}
     "title": {
-      "model": "github-copilot/gpt-5-mini"
-    },
+      "model": "{{ .opencode.title }}"
+    }{{ if .opencode.compaction }},{{ end }}
+{{- end }}
+{{- if .opencode.compaction }}
     "compaction": {
-      "model": "github-copilot/gpt-5-mini"
+      "model": "{{ .opencode.compaction }}"
     }
+{{- end }}
 {{- end }}
   }
 }
