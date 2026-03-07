@@ -155,6 +155,20 @@
           "terraform state push *": "deny"
         }
       }
+    },
+    "codebase-qa": {
+{{- if .opencode.codebase_qa }}
+      "model": "{{ .opencode.codebase_qa }}",
+{{- end }}
+      "permission": {
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "list": "allow",
+        "edit": "deny",
+        "write": "deny",
+        "bash": "deny"
+      }
     }
 {{- if or .opencode.summary .opencode.title .opencode.compaction }},
 {{- if .opencode.summary }}

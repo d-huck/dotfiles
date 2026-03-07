@@ -14,3 +14,10 @@
 .jj/
 
 notebooks/
+
+# AI model artifacts
+CLAUDE.md 
+AGENTS.md 
+.claude/ 
+.crush/ 
+.opencode/
