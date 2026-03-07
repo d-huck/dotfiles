@@ -16,4 +16,4 @@ report.minimal.labels=id,urg,proj,tags,due,desc  # tags,due,desc
 report.minimal.columns=id,urgency,project,tags.count,due.relative,description.count
 
 # key for syncing
-include $HOME/.config/task/champ.key
+# include $HOME/.config/task/champ.key
