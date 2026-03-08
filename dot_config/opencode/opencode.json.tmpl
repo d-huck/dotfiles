@@ -11,7 +11,7 @@
         "qwen/qwen3-coder-30b": {
           "name": "Qwen3 Coder 30b (local)",
           "limit": {
-            "context": 32768,
+            "context": 65536,
             "output": 8192
           }
         },
@@ -54,6 +54,18 @@
     "grep": {
       "type": "remote",
       "url": "https://mcp.grep.app"
+    },
+    "kubernetes": {
+      "type": "local",
+      "command": ["npx", "-y", "kubernetes-mcp-server@latest", "--read-only"]
+    },
+    "terraform": {
+      "type": "local",
+      "command": ["docker", "run", "-i", "--rm", "hashicorp/terraform-mcp-server:0.4.0"]
+    },
+    "ansible": {
+      "type": "local",
+      "command": ["{{ .chezmoi.homeDir }}/.local/share/mcp-ansible/.venv/bin/python", "{{ .chezmoi.homeDir }}/.local/share/mcp-ansible/src/ansible_mcp/server.py"]
     }
   },
   "permission": {
@@ -67,6 +79,7 @@
       "git commit *": "deny",
       "git push *": "deny",
       "git push": "deny",
+      "sleep *": "allow",
       "terraform apply": "deny",
       "terraform apply *": "deny",
       "terraform destroy": "deny",

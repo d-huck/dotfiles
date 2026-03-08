@@ -30,6 +30,20 @@ permission:
     "mv *": allow
     "cp *": allow
     "mkdir *": allow
+    "sort *": allow
+    "uniq *": allow
+    "diff *": allow
+    "cut *": allow
+    "tr *": allow
+    "awk *": allow
+    "sed *": allow
+    "xargs *": allow
+    "dirname *": allow
+    "basename *": allow
+    "pwd": allow
+    "realpath *": allow
+    "stat *": allow
+    "env": allow
     "uv": allow
     "uv *": allow
     "terraform": allow
@@ -44,6 +58,20 @@ permission:
     "terraform state mv *": deny
     "terraform state rm *": deny
     "terraform state push *": deny
+    "docker": allow
+    "docker *": allow
+    "docker rm *": deny
+    "docker rmi *": deny
+    "docker image rm *": deny
+    "docker push *": deny
+    "docker system prune *": deny
+    "docker system prune": deny
+    "docker volume rm *": deny
+    "docker network rm *": deny
+    "docker container prune *": deny
+    "docker container prune": deny
+    "docker image prune *": deny
+    "docker image prune": deny
     "git commit *": deny
     "git push *": deny
     "git push": deny

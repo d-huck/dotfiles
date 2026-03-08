@@ -11,6 +11,37 @@ permission:
   websearch: allow
   bash:
     "*": ask
+    "ls": allow
+    "ls *": allow
+    "find *": allow
+    "cat *": allow
+    "head *": allow
+    "tail *": allow
+    "grep *": allow
+    "echo *": allow
+    "wc *": allow
+    "file *": allow
+    "which *": allow
+    "tree": allow
+    "tree *": allow
+    "rm *": allow
+    "mv *": allow
+    "cp *": allow
+    "mkdir *": allow
+    "sort *": allow
+    "uniq *": allow
+    "diff *": allow
+    "cut *": allow
+    "tr *": allow
+    "awk *": allow
+    "sed *": allow
+    "xargs *": allow
+    "dirname *": allow
+    "basename *": allow
+    "pwd": allow
+    "realpath *": allow
+    "stat *": allow
+    "env": allow
     "git commit *": deny
     "git push *": deny
     "git push": deny
@@ -24,6 +55,20 @@ permission:
     "terraform state mv *": deny
     "terraform state rm *": deny
     "terraform state push *": deny
+    "docker": allow
+    "docker *": allow
+    "docker rm *": deny
+    "docker rmi *": deny
+    "docker image rm *": deny
+    "docker push *": deny
+    "docker system prune *": deny
+    "docker system prune": deny
+    "docker volume rm *": deny
+    "docker network rm *": deny
+    "docker container prune *": deny
+    "docker container prune": deny
+    "docker image prune *": deny
+    "docker image prune": deny
 ---
 
 You are OpenCode, the best coding agent on the planet.
